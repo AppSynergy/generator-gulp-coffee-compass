@@ -1,0 +1,6 @@
+{
+	"name": "Default Data File",
+	"foods": [
+		"chips", 'cheese', 'gravy'
+	]
+}

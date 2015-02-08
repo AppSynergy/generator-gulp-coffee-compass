@@ -1,0 +1,5 @@
+# Build Modules
+node_modules/
+
+# Author's Editor
+*.komodo*

@@ -1,0 +1,21 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.0.0",
+  "authors": [
+    "Adam Marshall <adam@appsynergy.net>",
+    "Josef Witchell"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper": "~0.9.21",
+    "bootstrap": "~3.3.2",
+  }
+}
