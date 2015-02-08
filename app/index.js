@@ -11,7 +11,7 @@ var GCCGenerator = module.exports = function GCCGenerator(args, options, config)
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 
-  this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
+  this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'src/index.html'));
 };
 
 util.inherits(GCCGenerator, yeoman.generators.Base);
@@ -67,11 +67,15 @@ GCCGenerator.prototype.dependancyRosters = function deps() {
   this.copy('package.json', 'package.json');
   this.copy('bower.json', 'bower.json');
   this.copy('Gemfile', 'Gemfile');
+  this.copy('config.rb', 'src/sass/config.rb');
 };
 
 GCCGenerator.prototype.exampleSrc = function src() {
   this.copy('src/Example.coffee', 'src/classes/Example.coffee');
   this.copy('src/default.json', 'src/data/default.json');
+  this.copy('src/index.html', 'src/index.html');
+  this.copy('src/sass-one.sass', 'src/sass/sass-one.sass');
+  this.copy('src/sass-two.sass', 'src/sass/sass-two.sass');
 };
 
 GCCGenerator.prototype.install = function () {

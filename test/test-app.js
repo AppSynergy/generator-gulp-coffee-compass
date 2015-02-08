@@ -23,7 +23,9 @@ describe('yo-gulp-coffee-compass:app', function () {
       'Gemfile',
       'Gulpfile.js',
       'Gulpfile.coffee',
-      'Gulproute.coffee'
+      'Gulproute.coffee',
+      'src/sass/sass-one.sass',
+      'src/sass/sass-two.sass'
     ]);
   });
 });
