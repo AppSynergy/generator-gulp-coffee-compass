@@ -1,5 +1,6 @@
 # Build Modules
 node_modules/
+.sass-cache
 
 # Author's Editor
 *.komodo*

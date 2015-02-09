@@ -1,6 +1,6 @@
 {
-	"name": "Default Data File",
+	"name": "<%= appName %>",
 	"foods": [
-		"chips", 'cheese', 'gravy'
+		"chips", "cheese", "gravy"
 	]
 }

@@ -1,1 +1,18 @@
-Hi index!
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ name }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+	<h1>{{ name }}</h1>
+	<ul>
+	{% for food in foods %}
+		<li>{{ food }}</li>
+	{% endfor %}
+	</ul>
+  </body>
+</html>

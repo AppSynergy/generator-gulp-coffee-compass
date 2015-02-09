@@ -43,6 +43,7 @@ GCCGenerator.prototype.askQuestions = function askQuestions() {
   this.prompt(prompts, function (props) {
     this.appName = props.appName;
     this.appDesc = props.appDesc;
+    this.appLicense = props.appLicense;
     this.robotImposter = props.robotImposter;
     cb();
   }.bind(this));
@@ -61,6 +62,7 @@ GCCGenerator.prototype.gulpfiles = function gulpfile() {
   this.copy('Gulpfile.js', 'Gulpfile.js');
   this.copy('Gulpfile.coffee', 'Gulpfile.coffee');
   this.copy('Gulproute.coffee', 'Gulproute.coffee');
+  this.copy('readme.md', 'readme.md');
 };
 
 GCCGenerator.prototype.dependancyRosters = function deps() {
@@ -71,11 +73,25 @@ GCCGenerator.prototype.dependancyRosters = function deps() {
 };
 
 GCCGenerator.prototype.exampleSrc = function src() {
-  this.copy('src/Example.coffee', 'src/classes/Example.coffee');
+  this.copy('src/Example.coffee', 'src/coffee/Example.coffee');
   this.copy('src/default.json', 'src/data/default.json');
-  this.copy('src/index.html', 'src/index.html');
   this.copy('src/sass-one.sass', 'src/sass/sass-one.sass');
   this.copy('src/sass-two.sass', 'src/sass/sass-two.sass');
+};
+
+GCCGenerator.prototype.writeIndex = function writeIndex() {
+  var mainCssFiles = ['css/sass-one.css', 'css/sass-two.css'];
+  var mainJsFiles = [
+    'js/jquery/dist/jquery.min.js',
+    'js/bootstrap/dist/js/bootstrap.min.js',
+    'js/Example.js'
+  ];
+  
+  this.indexFile = this.appendStyles(this.indexFile, 'css/main.css', mainCssFiles);
+  
+  this.indexFile = this.appendScripts(this.indexFile, 'js/main.js', mainJsFiles, null, 'app');
+  
+  this.write('src/index.html', this.indexFile);
 };
 
 GCCGenerator.prototype.install = function () {
@@ -85,13 +101,17 @@ GCCGenerator.prototype.install = function () {
   this.log(yosay(
     'Prepare to build ' + chalk.red('gulp-coffee-compass') + '!'
   ));
+  
+  this.spawnCommand('npm', ['install']);
+  this.spawnCommand('bower', ['install']);
+  this.spawnCommand('bundle', ['install']);
+  this.spawnCommand('gulp');
+};
+  
+GCCGenerator.prototype.end = function () { 
+  this.log(yosay(
+    'Application built. Run ' + chalk.green('gulp dev') + 'for a server.'
+  ));
 
-  var done = this.async();
-
-  this.installDependencies({
-    skipMessage: this.options['skip-message'],
-    skipInstall: this.options['skip-install'],
-    callback: done
-  });
 };
 

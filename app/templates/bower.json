@@ -1,11 +1,7 @@
 {
   "name": "<%= appName %>",
   "version": "0.0.0",
-  "authors": [
-    "Adam Marshall <adam@appsynergy.net>",
-    "Josef Witchell"
-  ],
-  "license": "MIT",
+  "license": "<%= appLicense %>",
   "private": true,
   "ignore": [
     "**/.*",
@@ -15,7 +11,6 @@
     "tests"
   ],
   "dependencies": {
-    "paper": "~0.9.21",
-    "bootstrap": "~3.3.2",
+    "bootstrap": "~3.3.2"
   }
 }

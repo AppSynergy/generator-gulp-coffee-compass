@@ -28,7 +28,7 @@ src = {
 	coffee: 'src/coffee/{,**/}*.coffee',
 	sass: 'src/sass/{,**}*.sass',
 	bower: {
-		js: 'bower_components/*/dist/*.min.{map,js}',
+		js: 'bower_components/*/dist/{,js/}*.min.{map,js}',
 		css: 'bower_components/*/dist/css/*.min.{map,css}',
 	}
 }
@@ -46,7 +46,7 @@ opts = {
 		]
 	},
 	sass: {
-		config_file: './config.rb',
+		config_file: 'src/sass/config.rb',
 		sass: 'src/sass',
 		css: 'public/css'
 	}
@@ -55,7 +55,7 @@ opts = {
 		defaults: {
 			cache: false,
 			locals: {
-				site_name: "My Blog"
+				site_name: "<%= appName %>"
 			}
 		}
 	}
